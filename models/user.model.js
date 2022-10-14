@@ -1,7 +1,7 @@
 // Importation de mongoose
 const mongoose = require('mongoose');
 const { isEmail } = require('validator');
-
+const bcrypt = require('bcrypt');
 
 // Création du Shema
 const userSchema = new mongoose.Schema(
@@ -50,6 +50,15 @@ const userSchema = new mongoose.Schema(
       timestamps: true,
     }
   );
+
+  // fonction qui permet de 
+  userSchema.pre('save', async function(next) {
+
+    // salage du password avec bcrypt
+    const salt = await bcrypt.genSalt();
+    this.password = await bcrypt.hash(this.password, salt);
+    next();
+  });
 
 const UserModel = mongoose.model("user", userSchema);
 
