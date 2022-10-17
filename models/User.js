@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const {isEmail} = require('validator');
+const { isEmail } = require("validator");
 
 const userSchema = mongoose.Schema({
   pseudo: {
@@ -24,13 +24,15 @@ const userSchema = mongoose.Schema({
     max: 1000,
     minlength: 6,
   },
+  likes: {
+    type: [String],
+  },
   role: {
     type: Boolean,
   },
 });
 
-
-module.exports = mongoose.model('User', userSchema);
+module.exports = mongoose.model("User", userSchema);
 
 // Importation de mongoose
 // const mongoose = require("mongoose");
