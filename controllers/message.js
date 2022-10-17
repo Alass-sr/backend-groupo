@@ -1,37 +1,97 @@
-const Message = require('../models/Message');
-const fs = require('fs');
+const Message = require("../models/Message");
+const fs = require("fs");
+
+const log = require("../utils/winston");
 
 exports.createMessage = (req, res, next) => {
-    delete req.body._id;
-    const message = new Message({
-      ...req.body
+  log.info("createMessage");
+  log.info(`createMessage req body = ${JSON.stringify(req.body)}`);
+  // On stocke les données envoyées par le front-end sous forme de form-data dans une variable en les transformant en objet js
+  const messageObject = JSON.parse(req.body.message);
+
+  // On supprime l'id généré automatiquement et envoyé par le front-end. L'id de la sauce est créé par la base MongoDB lors de la création dans la base
+  delete messageObject._id;
+  // delete sauceObject._userId;
+  // Création d'une instance du modèle Sauce
+  const message = new Message({
+    ...messageObject,
+    userId: req.auth.userId,
+    // On modifie l'URL de l'image
+    imageUrl: `${req.protocol}://${req.get("host")}/images/${
+      req.file.filename
+    }`,
+  });
+
+  // Sauvegarde de la sauce dans la base de données
+  message.save()
+    // On envoi une réponse au frontend avec un statut 201
+    .then(() => {
+      res.status(201).json({ message: "Message enregistré !" });
     })
-    message.save()
-    .then(() => res.status(201).json({ message: 'message enregistré !'}))
-    .catch((error => res.status(400).json({ error })))
-  }
+    // On ajoute un code erreur en cas de problème
+    .catch((error) => {
+      res.status(400).json({ error });
+    });
+};
 
-  exports.modifyMessage = (req, res, next) => {
-    Message.updateOne({ _id: req.params.id}, { ...req.body, _id: req.params.id })
-    .then(() => res.status(200).json({ message: 'message modifié !'}))
-    .catch(error => res.status(400).json({ error })); 
-  }
+exports.modifyMessage = (req, res, next) => {
+  const messageObject = req.file
+    ? {
+        ...JSON.parse(req.body.message),
+        imageUrl: `${req.protocol}://${req.get("host")}/images/${
+          req.file.filename
+        }`,
+      }
+    : { ...req.body };
 
-  exports.getOneMessage = (req, res, next) => {
-    Message.findOne({_id: req.params.id})
-    .then(message => res.status(200).json(message))
-    .catch(error => res.status(404).json({ error }));
-  }
+  delete messageObject._userId;
+  Message.findOne({ _id: req.params.id })
+    .then((message) => {
+      if (message.userId != req.auth.userId) {
+        res.status(401).json({ message: "Not authorized" });
+      } else {
+        Message.updateOne(
+          { _id: req.params.id },
+          { ...messageObject, _id: req.params.id }
+        )
+          .then(() => res.status(200).json({ message: "Message modifié!" }))
+          .catch((error) => res.status(401).json({ error }));
+      }
+    })
+    .catch((error) => {
+      res.status(400).json({ error });
+    });
+};
 
-  exports.getAllMessage = (req, res, next) => {
-    Message.find()
-    .then(messages => res.status(200).json(messages))
-    .catch(error => res.status(400).json({ error }));
-  
-  }
+exports.getOneMessage = (req, res, next) => {
+  Message.findOne({ _id: req.params.id })
+    .then((message) => res.status(200).json(message))
+    .catch((error) => res.status(404).json({ error }));
+};
 
-  exports.deleteMessage = (req, res, next) => {
-    Message.deleteOne({ _id: req.params.id })
-      .then(() => res.status(200).json({ message: 'message supprimé !'}))
-      .catch(error => res.status(400).json({ error }));
-  }
+exports.getAllMessage = (req, res, next) => {
+  Message.find()
+    .then((messages) => res.status(200).json(messages))
+    .catch((error) => res.status(400).json({ error }));
+};
+
+exports.deleteMessage = (req, res, next) => {
+  Message.findOne({ _id: req.params.id })
+    .then((message) => {
+      if (message.userId != req.auth.userId) {
+        res.status(401).json({ message: "Not authorized" });
+      } else {
+        const filename = message.imageUrl.split("/images/")[1];
+        fs.unlink(`images/${filename}`, () => {
+          Message.deleteOne({ _id: req.params.id })
+            .then(() => {
+              res.status(200).json({ message: "Message supprimé !" });
+            })
+            .catch((error) => res.status(401).json({ error }));
+        });
+      }
+    })
+    .catch((error) => {
+      res.status(500).json({ error });
+    });
+};

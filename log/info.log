@@ -1,0 +1,120 @@
+{"level":"info","message":"init","timestamp":"2022-10-16 04:51:05 PM +0200"}
+{"level":"info","message":"init","timestamp":"2022-10-16 04:58:42 PM +0200"}
+{"level":"info","message":"init","timestamp":"2022-10-16 04:58:59 PM +0200"}
+{"level":"info","message":"init","timestamp":"2022-10-16 05:00:12 PM +0200"}
+{"level":"info","message":"init","timestamp":"2022-10-16 05:04:54 PM +0200"}
+{"level":"info","message":"init","timestamp":"2022-10-16 05:05:01 PM +0200"}
+{"level":"info","message":"init","timestamp":"2022-10-16 05:05:02 PM +0200"}
+{"level":"info","message":"init","timestamp":"2022-10-16 05:05:17 PM +0200"}
+{"level":"info","message":"init","timestamp":"2022-10-16 05:05:36 PM +0200"}
+{"level":"info","message":"init","timestamp":"2022-10-16 05:06:01 PM +0200"}
+{"level":"info","message":"init","timestamp":"2022-10-16 05:06:03 PM +0200"}
+{"level":"info","message":"init","timestamp":"2022-10-16 05:06:11 PM +0200"}
+{"level":"info","message":"init","timestamp":"2022-10-16 05:09:31 PM +0200"}
+{"level":"info","message":"init","timestamp":"2022-10-16 05:09:34 PM +0200"}
+{"level":"info","message":"init","timestamp":"2022-10-16 05:09:42 PM +0200"}
+{"level":"info","message":"init","timestamp":"2022-10-16 05:22:33 PM +0200"}
+{"level":"info","message":"init","timestamp":"2022-10-16 05:26:47 PM +0200"}
+{"level":"info","message":"init","timestamp":"2022-10-16 05:29:27 PM +0200"}
+{"level":"info","message":"init","timestamp":"2022-10-16 05:29:30 PM +0200"}
+{"level":"info","message":"init","timestamp":"2022-10-16 05:29:41 PM +0200"}
+{"level":"info","message":"init","timestamp":"2022-10-16 05:29:46 PM +0200"}
+{"level":"info","message":"init","timestamp":"2022-10-16 05:29:50 PM +0200"}
+{"level":"info","message":"init","timestamp":"2022-10-16 05:30:04 PM +0200"}
+{"level":"info","message":"init","timestamp":"2022-10-16 05:30:10 PM +0200"}
+{"level":"info","message":"init","timestamp":"2022-10-16 05:30:20 PM +0200"}
+{"date":"Sun Oct 16 2022 17:30:20 GMT+0200 (heure d’été d’Europe centrale)","error":{},"exception":true,"level":"error","message":"uncaughtException: Route.post() requires a callback function but got a [object Undefined]\nError: Route.post() requires a callback function but got a [object Undefined]\n    at Route.<computed> [as post] (C:\\Users\\sarra\\Documents\\Sarr_Alassane_Projet7_Groupomania\\backend\\node_modules\\express\\lib\\router\\route.js:211:15)\n    at Function.proto.<computed> [as post] (C:\\Users\\sarra\\Documents\\Sarr_Alassane_Projet7_Groupomania\\backend\\node_modules\\express\\lib\\router\\index.js:521:19)\n    at Object.<anonymous> (C:\\Users\\sarra\\Documents\\Sarr_Alassane_Projet7_Groupomania\\backend\\routes\\message.js:10:8)\n    at Module._compile (node:internal/modules/cjs/loader:1126:14)\n    at Object.Module._extensions..js (node:internal/modules/cjs/loader:1180:10)\n    at Module.load (node:internal/modules/cjs/loader:1004:32)\n    at Function.Module._load (node:internal/modules/cjs/loader:839:12)\n    at Module.require (node:internal/modules/cjs/loader:1028:19)\n    at require (node:internal/modules/cjs/helpers:102:18)\n    at Object.<anonymous> (C:\\Users\\sarra\\Documents\\Sarr_Alassane_Projet7_Groupomania\\backend\\app.js:5:23)\n    at Module._compile (node:internal/modules/cjs/loader:1126:14)\n    at Object.Module._extensions..js (node:internal/modules/cjs/loader:1180:10)\n    at Module.load (node:internal/modules/cjs/loader:1004:32)\n    at Function.Module._load (node:internal/modules/cjs/loader:839:12)\n    at Module.require (node:internal/modules/cjs/loader:1028:19)\n    at require (node:internal/modules/cjs/helpers:102:18)","os":{"loadavg":[0,0,0],"uptime":201587},"process":{"argv":["C:\\Program Files\\nodejs\\node.exe","C:\\Users\\sarra\\Documents\\Sarr_Alassane_Projet7_Groupomania\\backend\\server.js"],"cwd":"C:\\Users\\sarra\\Documents\\Sarr_Alassane_Projet7_Groupomania\\backend","execPath":"C:\\Program Files\\nodejs\\node.exe","gid":null,"memoryUsage":{"arrayBuffers":18749961,"external":23865450,"heapTotal":35459072,"heapUsed":25025192,"rss":62930944},"pid":268,"uid":null,"version":"v16.17.0"},"stack":"Error: Route.post() requires a callback function but got a [object Undefined]\n    at Route.<computed> [as post] (C:\\Users\\sarra\\Documents\\Sarr_Alassane_Projet7_Groupomania\\backend\\node_modules\\express\\lib\\router\\route.js:211:15)\n    at Function.proto.<computed> [as post] (C:\\Users\\sarra\\Documents\\Sarr_Alassane_Projet7_Groupomania\\backend\\node_modules\\express\\lib\\router\\index.js:521:19)\n    at Object.<anonymous> (C:\\Users\\sarra\\Documents\\Sarr_Alassane_Projet7_Groupomania\\backend\\routes\\message.js:10:8)\n    at Module._compile (node:internal/modules/cjs/loader:1126:14)\n    at Object.Module._extensions..js (node:internal/modules/cjs/loader:1180:10)\n    at Module.load (node:internal/modules/cjs/loader:1004:32)\n    at Function.Module._load (node:internal/modules/cjs/loader:839:12)\n    at Module.require (node:internal/modules/cjs/loader:1028:19)\n    at require (node:internal/modules/cjs/helpers:102:18)\n    at Object.<anonymous> (C:\\Users\\sarra\\Documents\\Sarr_Alassane_Projet7_Groupomania\\backend\\app.js:5:23)\n    at Module._compile (node:internal/modules/cjs/loader:1126:14)\n    at Object.Module._extensions..js (node:internal/modules/cjs/loader:1180:10)\n    at Module.load (node:internal/modules/cjs/loader:1004:32)\n    at Function.Module._load (node:internal/modules/cjs/loader:839:12)\n    at Module.require (node:internal/modules/cjs/loader:1028:19)\n    at require (node:internal/modules/cjs/helpers:102:18)","timestamp":"2022-10-16 05:30:20 PM +0200","trace":[{"column":15,"file":"C:\\Users\\sarra\\Documents\\Sarr_Alassane_Projet7_Groupomania\\backend\\node_modules\\express\\lib\\router\\route.js","function":"Route.<computed> [as post]","line":211,"method":"<computed> [as post]","native":false},{"column":19,"file":"C:\\Users\\sarra\\Documents\\Sarr_Alassane_Projet7_Groupomania\\backend\\node_modules\\express\\lib\\router\\index.js","function":"Function.proto.<computed> [as post]","line":521,"method":"<computed> [as post]","native":false},{"column":8,"file":"C:\\Users\\sarra\\Documents\\Sarr_Alassane_Projet7_Groupomania\\backend\\routes\\message.js","function":null,"line":10,"method":null,"native":false},{"column":14,"file":"node:internal/modules/cjs/loader","function":"Module._compile","line":1126,"method":"_compile","native":false},{"column":10,"file":"node:internal/modules/cjs/loader","function":"Module._extensions..js","line":1180,"method":".js","native":false},{"column":32,"file":"node:internal/modules/cjs/loader","function":"Module.load","line":1004,"method":"load","native":false},{"column":12,"file":"node:internal/modules/cjs/loader","function":"Module._load","line":839,"method":"_load","native":false},{"column":19,"file":"node:internal/modules/cjs/loader","function":"Module.require","line":1028,"method":"require","native":false},{"column":18,"file":"node:internal/modules/cjs/helpers","function":"require","line":102,"method":null,"native":false},{"column":23,"file":"C:\\Users\\sarra\\Documents\\Sarr_Alassane_Projet7_Groupomania\\backend\\app.js","function":null,"line":5,"method":null,"native":false},{"column":14,"file":"node:internal/modules/cjs/loader","function":"Module._compile","line":1126,"method":"_compile","native":false},{"column":10,"file":"node:internal/modules/cjs/loader","function":"Module._extensions..js","line":1180,"method":".js","native":false},{"column":32,"file":"node:internal/modules/cjs/loader","function":"Module.load","line":1004,"method":"load","native":false},{"column":12,"file":"node:internal/modules/cjs/loader","function":"Module._load","line":839,"method":"_load","native":false},{"column":19,"file":"node:internal/modules/cjs/loader","function":"Module.require","line":1028,"method":"require","native":false},{"column":18,"file":"node:internal/modules/cjs/helpers","function":"require","line":102,"method":null,"native":false}]}
+{"level":"info","message":"init","timestamp":"2022-10-16 05:30:30 PM +0200"}
+{"level":"info","message":"init","timestamp":"2022-10-16 05:30:39 PM +0200"}
+{"level":"info","message":"init","timestamp":"2022-10-16 05:30:41 PM +0200"}
+{"level":"info","message":"init","timestamp":"2022-10-16 05:30:48 PM +0200"}
+{"level":"info","message":"init","timestamp":"2022-10-16 05:30:56 PM +0200"}
+{"level":"info","message":"init","timestamp":"2022-10-16 05:31:02 PM +0200"}
+{"level":"info","message":"init","timestamp":"2022-10-16 05:31:09 PM +0200"}
+{"level":"info","message":"init","timestamp":"2022-10-16 05:31:22 PM +0200"}
+{"level":"info","message":"init","timestamp":"2022-10-16 05:35:23 PM +0200"}
+{"level":"info","message":"init","timestamp":"2022-10-16 05:43:15 PM +0200"}
+{"level":"info","message":"init","timestamp":"2022-10-16 05:43:17 PM +0200"}
+{"level":"info","message":"init","timestamp":"2022-10-16 05:43:20 PM +0200"}
+{"level":"info","message":"init","timestamp":"2022-10-16 05:43:26 PM +0200"}
+{"level":"info","message":"init","timestamp":"2022-10-16 05:43:50 PM +0200"}
+{"level":"info","message":"init","timestamp":"2022-10-16 05:46:55 PM +0200"}
+{"level":"info","message":"init","timestamp":"2022-10-16 05:46:58 PM +0200"}
+{"level":"info","message":"init","timestamp":"2022-10-16 06:02:28 PM +0200"}
+{"level":"info","message":"init","timestamp":"2022-10-16 06:04:08 PM +0200"}
+{"level":"info","message":"init","timestamp":"2022-10-16 06:06:28 PM +0200"}
+{"level":"info","message":"init","timestamp":"2022-10-16 06:06:38 PM +0200"}
+{"level":"info","message":"init","timestamp":"2022-10-16 06:07:01 PM +0200"}
+{"level":"info","message":"init","timestamp":"2022-10-16 06:14:08 PM +0200"}
+{"level":"info","message":"init","timestamp":"2022-10-16 06:14:11 PM +0200"}
+{"level":"info","message":"init","timestamp":"2022-10-16 06:14:15 PM +0200"}
+{"level":"info","message":"init","timestamp":"2022-10-16 06:14:16 PM +0200"}
+{"level":"info","message":"init","timestamp":"2022-10-16 07:03:38 PM +0200"}
+{"level":"info","message":"init","timestamp":"2022-10-16 07:07:23 PM +0200"}
+{"level":"info","message":"init","timestamp":"2022-10-16 07:07:25 PM +0200"}
+{"level":"info","message":"init","timestamp":"2022-10-16 07:08:37 PM +0200"}
+{"level":"info","message":"init","timestamp":"2022-10-16 07:21:11 PM +0200"}
+{"level":"info","message":"init","timestamp":"2022-10-16 07:21:35 PM +0200"}
+{"level":"info","message":"init","timestamp":"2022-10-16 07:23:33 PM +0200"}
+{"level":"info","message":"init","timestamp":"2022-10-16 07:32:13 PM +0200"}
+{"level":"info","message":"init","timestamp":"2022-10-16 07:32:29 PM +0200"}
+{"level":"info","message":"init","timestamp":"2022-10-16 07:35:58 PM +0200"}
+{"level":"info","message":"init","timestamp":"2022-10-16 07:36:02 PM +0200"}
+{"level":"info","message":"init","timestamp":"2022-10-16 07:36:58 PM +0200"}
+{"level":"info","message":"createMessage","timestamp":"2022-10-16 07:38:22 PM +0200"}
+{"level":"info","message":"createMessage req body = {\"message\":\"Hello c'est moi\",\"imageUrl\":\"\"}","timestamp":"2022-10-16 07:38:22 PM +0200"}
+{"level":"info","message":"createMessage","timestamp":"2022-10-16 07:39:37 PM +0200"}
+{"level":"info","message":"createMessage req body = {\"message\":\"Hello c'est moi\",\"imageUrl\":\"\"}","timestamp":"2022-10-16 07:39:37 PM +0200"}
+{"level":"info","message":"createMessage","timestamp":"2022-10-17 12:19:15 AM +0200"}
+{"level":"info","message":"createMessage req body = {}","timestamp":"2022-10-17 12:19:15 AM +0200"}
+{"level":"info","message":"createMessage","timestamp":"2022-10-17 12:22:54 AM +0200"}
+{"level":"info","message":"createMessage req body = {}","timestamp":"2022-10-17 12:22:54 AM +0200"}
+{"level":"info","message":"createMessage","timestamp":"2022-10-17 12:23:50 AM +0200"}
+{"level":"info","message":"createMessage req body = {}","timestamp":"2022-10-17 12:23:50 AM +0200"}
+{"level":"info","message":"init","timestamp":"2022-10-17 12:28:54 AM +0200"}
+{"level":"info","message":"createMessage","timestamp":"2022-10-17 12:29:07 AM +0200"}
+{"level":"info","message":"createMessage req body = {}","timestamp":"2022-10-17 12:29:07 AM +0200"}
+{"level":"info","message":"init","timestamp":"2022-10-17 12:29:17 AM +0200"}
+{"level":"info","message":"init","timestamp":"2022-10-17 12:32:58 AM +0200"}
+{"level":"info","message":"createMessage","timestamp":"2022-10-17 12:33:05 AM +0200"}
+{"level":"info","message":"createMessage req body = {}","timestamp":"2022-10-17 12:33:05 AM +0200"}
+{"level":"info","message":"init","timestamp":"2022-10-17 12:33:36 AM +0200"}
+{"level":"info","message":"createMessage","timestamp":"2022-10-17 12:33:50 AM +0200"}
+{"level":"info","message":"createMessage req body = {}","timestamp":"2022-10-17 12:33:50 AM +0200"}
+{"level":"info","message":"init","timestamp":"2022-10-17 12:37:42 AM +0200"}
+{"level":"info","message":"init","timestamp":"2022-10-17 12:37:55 AM +0200"}
+{"level":"info","message":"init","timestamp":"2022-10-17 12:38:10 AM +0200"}
+{"level":"info","message":"init","timestamp":"2022-10-17 12:38:23 AM +0200"}
+{"level":"info","message":"init","timestamp":"2022-10-17 12:38:36 AM +0200"}
+{"level":"info","message":"createMessage","timestamp":"2022-10-17 12:41:12 AM +0200"}
+{"level":"info","message":"createMessage req body = {\"message\":\"Hello c'est moi\"}","timestamp":"2022-10-17 12:41:12 AM +0200"}
+{"level":"info","message":"init","timestamp":"2022-10-17 12:54:41 AM +0200"}
+{"level":"info","message":"init","timestamp":"2022-10-17 12:54:47 AM +0200"}
+{"level":"info","message":"init","timestamp":"2022-10-17 12:54:49 AM +0200"}
+{"level":"info","message":"init","timestamp":"2022-10-17 12:54:55 AM +0200"}
+{"level":"info","message":"init","timestamp":"2022-10-17 12:55:10 AM +0200"}
+{"level":"info","message":"init","timestamp":"2022-10-17 12:55:15 AM +0200"}
+{"level":"info","message":"init","timestamp":"2022-10-17 12:55:20 AM +0200"}
+{"level":"info","message":"createMessage","timestamp":"2022-10-17 01:04:08 AM +0200"}
+{"level":"info","message":"createMessage req body = {\"message\":\"Hello c'est moi\",\"imageUrl\":\"\"}","timestamp":"2022-10-17 01:04:08 AM +0200"}
+{"level":"info","message":"createMessage","timestamp":"2022-10-17 01:07:47 AM +0200"}
+{"level":"info","message":"createMessage req body = {\"message\":\"Hello c'est moi\",\"imageUrl\":\"\",\"like\":\"[]\",\"userId\":\"634c3f92cddc9754803e159a\"}","timestamp":"2022-10-17 01:07:47 AM +0200"}
+{"level":"info","message":"createMessage","timestamp":"2022-10-17 01:10:22 AM +0200"}
+{"level":"info","message":"createMessage req body = {\"message\":\"{\\\"message\\\":\\\"hello world\\\",\\n\\\"imageUrl\\\":\\\"\\\",\\n\\\"like\\\":\\\"[]\\\",\\n\\\"userId\\\":\\\"634c3f92cddc9754803e159a\\\"\\n}\"}","timestamp":"2022-10-17 01:10:22 AM +0200"}
+{"level":"info","message":"init","timestamp":"2022-10-17 01:17:31 AM +0200"}
+{"level":"info","message":"createMessage","timestamp":"2022-10-17 01:17:44 AM +0200"}
+{"level":"info","message":"createMessage req body = {\"message\":\"{\\\"message\\\":\\\"hello world\\\",\\n\\\"imageUrl\\\":\\\"\\\",\\n\\\"like\\\":\\\"[]\\\",\\n\\\"userId\\\":\\\"634c3f92cddc9754803e159a\\\"\\n}\"}","timestamp":"2022-10-17 01:17:44 AM +0200"}
+{"level":"info","message":"createMessage","timestamp":"2022-10-17 01:35:18 AM +0200"}
+{"level":"info","message":"createMessage req body = {\"message\":\"{\\\"message\\\":\\\"hello everybody\\\",\\n\\\"imageUrl\\\":\\\"\\\",\\n\\\"likes\\\":\\\"[]\\\",\\n\\\"userId\\\":\\\"\\\"\"}","timestamp":"2022-10-17 01:35:18 AM +0200"}
+{"level":"info","message":"createMessage","timestamp":"2022-10-17 01:38:11 AM +0200"}
+{"level":"info","message":"createMessage req body = {\"message\":\"hello world everybody\",\"imageUrl\":\"http://localhost:3000/images/fantasy-2861107__340.jpg1665962264578.jpeg\",\"like\":\"[]\",\"userId\":\"\"}","timestamp":"2022-10-17 01:38:11 AM +0200"}
+{"level":"info","message":"createMessage","timestamp":"2022-10-17 01:38:59 AM +0200"}
+{"level":"info","message":"createMessage req body = {\"message\":\"hello world everybody\",\"imageUrl\":\"http://localhost:3000/images/fantasy-2861107__340.jpg1665962264578.jpeg\",\"like\":\"[]\",\"userId\":\"634c9306f0b45254b87666ba\"}","timestamp":"2022-10-17 01:38:59 AM +0200"}
+{"level":"info","message":"createMessage","timestamp":"2022-10-17 01:41:52 AM +0200"}
+{"level":"info","message":"createMessage req body = {\"message\":\"{\\n\\\"message\\\":\\\"hello everybody\\\",\\n\\\"imageUrl\\\":\\\"\\\",\\n\\\"likes\\\":\\\"[]\\\",\\n\\\"userId\\\":\\\"\\\"\\n}\"}","timestamp":"2022-10-17 01:41:52 AM +0200"}
+{"level":"info","message":"createMessage","timestamp":"2022-10-17 01:42:40 AM +0200"}
+{"level":"info","message":"createMessage req body = {\"message\":\"{\\n\\\"message\\\":\\\"hello everybody\\\",\\n\\\"imageUrl\\\":\\\"\\\",\\n\\\"userId\\\":\\\"\\\"\\n}\"}","timestamp":"2022-10-17 01:42:40 AM +0200"}
+{"level":"info","message":"createMessage","timestamp":"2022-10-17 01:52:40 AM +0200"}
+{"level":"info","message":"createMessage req body = {}","timestamp":"2022-10-17 01:52:40 AM +0200"}
+{"level":"info","message":"createMessage","timestamp":"2022-10-17 01:53:49 AM +0200"}
+{"level":"info","message":"createMessage req body = {\"message\":\"{\\n\\\"message\\\":\\\"Ca va beaucoup mieux\\\",\\n\\\"imageUrl\\\":\\\"\\\",\\n\\\"userId\\\":\\\"\\\"\\n}\"}","timestamp":"2022-10-17 01:53:49 AM +0200"}

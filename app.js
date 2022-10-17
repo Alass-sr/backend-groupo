@@ -7,6 +7,9 @@ const userRoutes = require('./routes/user');
 
 const dotenv = require("dotenv").config();
 
+// On donne accès au chemin de notre système de fichier
+const path = require("path");
+
 mongoose
   .connect(process.env.DB_URI, {
     useUnifiedTopology: true,
@@ -36,8 +39,11 @@ app.use((req, res, next) => {
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.use("./api/message", messageRoutes);
+app.use("/api/message", messageRoutes);
 app.use("/api/auth", userRoutes);
+
+// Middleware qui permet de charger les fichiers qui sont dans le repertoire images
+app.use("/images", express.static(path.join(__dirname, "images")));
 
 
 
