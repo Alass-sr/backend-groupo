@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
 const { isEmail } = require("validator");
 
+
 const userSchema = mongoose.Schema({
   pseudo: {
     type: String,
@@ -27,9 +28,7 @@ const userSchema = mongoose.Schema({
   likes: {
     type: [String],
   },
-  role: {
-    type: Boolean,
-  },
+  isAdmin:Boolean
 });
 
 module.exports = mongoose.model("User", userSchema);

@@ -1,4 +1,7 @@
 const Message = require("../models/Message");
+const User = require("../models/User");
+
+const path = require("path");
 const fs = require("fs");
 
 const log = require("../utils/winston");
@@ -11,10 +14,11 @@ exports.createMessage = (req, res, next) => {
 
   // On supprime l'id généré automatiquement et envoyé par le front-end. L'id de la sauce est créé par la base MongoDB lors de la création dans la base
   delete messageObject._id;
-  // delete sauceObject._userId;
+  // delete messageObject._userId;
   // Création d'une instance du modèle Sauce
   const message = new Message({
     ...messageObject,
+
     userId: req.auth.userId,
     // On modifie l'URL de l'image
     imageUrl: `${req.protocol}://${req.get("host")}/images/${
@@ -23,7 +27,8 @@ exports.createMessage = (req, res, next) => {
   });
 
   // Sauvegarde de la sauce dans la base de données
-  message.save()
+  message
+    .save()
     // On envoi une réponse au frontend avec un statut 201
     .then(() => {
       res.status(201).json({ message: "Message enregistré !" });
@@ -35,6 +40,9 @@ exports.createMessage = (req, res, next) => {
 };
 
 exports.modifyMessage = (req, res, next) => {
+  log.info("modifyMessage");
+  log.info(`modifyMessage req body = ${JSON.stringify(req.body)}`);
+
   const messageObject = req.file
     ? {
         ...JSON.parse(req.body.message),
@@ -45,6 +53,11 @@ exports.modifyMessage = (req, res, next) => {
     : { ...req.body };
 
   delete messageObject._userId;
+  log.info(`modifyMessage req params = ${JSON.stringify(req.params)}`);
+  log.info(`modifyMessage req body = ${JSON.stringify(req.body)}`);
+  log.info(`modifyMessage req auth = ${JSON.stringify(req.auth)}`);
+  log.info(`modifyMessage req headers = ${JSON.stringify(req.headers)}`);
+
   Message.findOne({ _id: req.params.id })
     .then((message) => {
       if (message.userId != req.auth.userId) {

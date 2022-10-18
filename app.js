@@ -1,7 +1,8 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
-// const userRoutes = require("./routes/user.routes");
+
+
 const messageRoutes = require("./routes/message");
 const userRoutes = require('./routes/user');
 
@@ -38,6 +39,7 @@ app.use((req, res, next) => {
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+
 
 app.use("/api/message", messageRoutes);
 app.use("/api/auth", userRoutes);
