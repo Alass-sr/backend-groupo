@@ -1,6 +1,7 @@
 const Message = require("../models/Message");
 const User = require("../models/User");
 
+
 const path = require("path");
 const fs = require("fs");
 
@@ -40,40 +41,52 @@ exports.createMessage = (req, res, next) => {
 };
 
 exports.modifyMessage = (req, res, next) => {
-  log.info("modifyMessage");
-  log.info(`modifyMessage req body = ${JSON.stringify(req.body)}`);
+  const updatedRecord = {
+    message: req.body.message,
+  };
 
-  const messageObject = req.file
-    ? {
-        ...JSON.parse(req.body.message),
-        imageUrl: `${req.protocol}://${req.get("host")}/images/${
-          req.file.filename
-        }`,
-      }
-    : { ...req.body };
+  Message.findByIdAndUpdate(
+    req.params.id,
+    { $set: updatedRecord },
+    { new: true },
+    (err, docs) => {
+      if (!err) res.send(docs);
+      else console.log("Update error : " + err);
+    }
+  );
+  // log.info("modifyMessage");
+  // log.info(`modifyMessage req body = ${JSON.stringify(req.body)}`);
 
-  delete messageObject._userId;
-  log.info(`modifyMessage req params = ${JSON.stringify(req.params)}`);
-  log.info(`modifyMessage req body = ${JSON.stringify(req.body)}`);
-  log.info(`modifyMessage req auth = ${JSON.stringify(req.auth)}`);
-  log.info(`modifyMessage req headers = ${JSON.stringify(req.headers)}`);
+  // const messageObject = req.file
+  //   ? {
+  //       ...JSON.parse(req.body.message),
+  //       imageUrl: `${req.protocol}://${req.get("host")}/images/${
+  //         req.file.filename
+  //       }`,
+  //     }
+  //   : { ...req.body };
 
-  Message.findOne({ _id: req.params.id })
-    .then((message) => {
-      if (message.userId != req.auth.userId) {
-        res.status(401).json({ message: "Not authorized" });
-      } else {
-        Message.updateOne(
-          { _id: req.params.id },
-          { ...messageObject, _id: req.params.id }
-        )
-          .then(() => res.status(200).json({ message: "Message modifié!" }))
-          .catch((error) => res.status(401).json({ error }));
-      }
-    })
-    .catch((error) => {
-      res.status(400).json({ error });
-    });
+  // delete messageObject._userId;
+  // log.info(`modifyMessage req params = ${JSON.stringify(req.params)}`);
+  // log.info(`modifyMessage req body = ${JSON.stringify(req.body)}`);
+  // log.info(`modifyMessage req auth = ${JSON.stringify(req.auth)}`);
+
+  // Message.findOne({ _id: req.params.id })
+  //   .then((message) => {
+  //     if (message.userId != req.auth.userId) {
+  //       res.status(401).json({ message: "Not authorized" });
+  //     } else {
+  //       Message.updateOne(
+  //         { _id: req.params.id },
+  //         { ...messageObject, _id: req.params.id }
+  //       )
+  //         .then(() => res.status(200).json({ message: "Message modifié!" }))
+  //         .catch((error) => res.status(401).json({ error }));
+  //     }
+  //   })
+  //   .catch((error) => {
+  //     res.status(400).json({ error });
+  //   });
 };
 
 exports.getOneMessage = (req, res, next) => {
@@ -89,22 +102,82 @@ exports.getAllMessage = (req, res, next) => {
 };
 
 exports.deleteMessage = (req, res, next) => {
-  Message.findOne({ _id: req.params.id })
-    .then((message) => {
-      if (message.userId != req.auth.userId) {
-        res.status(401).json({ message: "Not authorized" });
-      } else {
-        const filename = message.imageUrl.split("/images/")[1];
-        fs.unlink(`images/${filename}`, () => {
-          Message.deleteOne({ _id: req.params.id })
-            .then(() => {
-              res.status(200).json({ message: "Message supprimé !" });
-            })
-            .catch((error) => res.status(401).json({ error }));
-        });
-      }
-    })
-    .catch((error) => {
-      res.status(500).json({ error });
-    });
+  Message.findByIdAndRemove(req.params.id, (err, docs) => {
+    if (!err) res.send(docs);
+    else console.log("Delete error: " + err);
+  });
+  // Message.findOne({ _id: req.params.id })
+  //   .then((message) => {
+  //     if (message.userId != req.auth.userId) {
+  //       res.status(401).json({ message: "Not authorized" });
+  //     } else {
+  //       const filename = message.imageUrl.split("/images/")[1];
+  //       fs.unlink(`images/${filename}`, () => {
+  //         Message.deleteOne({ _id: req.params.id })
+  //           .then(() => {
+  //             res.status(200).json({ message: "Message supprimé !" });
+  //           })
+  //           .catch((error) => res.status(401).json({ error }));
+  //       });
+  //     }
+  //   })
+  //   .catch((error) => {
+  //     res.status(500).json({ error });
+  //   });
 };
+exports.likePost = async (req, res) => {
+  try {
+    await Message.findByIdAndUpdate(
+      req.params.id,
+      {
+        $addToSet: { likers: req.body.id },
+      },
+      { new: true },
+      (err, docs) => {
+        if (err) return res.status(400).send(err);
+      }
+    );
+    await User.findByIdAndUpdate(
+      req.body.id,
+      {
+        $addToSet: { likes: req.params.id },
+      },
+      { new: true },
+      (err, docs) => {
+        if (!err) res.send(docs);
+        else return res.status(400).send(err);
+      }
+    );
+  } catch (err) {
+    return res.status(400).send(err);
+  }
+};
+
+exports.unlikePost = async (req, res) => {
+  try {
+    await Message.findByIdAndUpdate(
+      req.params.id,
+      {
+        $pull: { likers: req.body.id },
+      },
+      { new: true },
+      (err, docs) => {
+        if (err) return res.status(400).send(err);
+      }
+    );
+    await User.findByIdAndUpdate(
+      req.body.id,
+      {
+        $pull: { likes: req.params.id },
+      },
+      { new: true },
+      (err, docs) => {
+        if (!err) res.send(docs);
+        else return res.status(400).send(err);
+      }
+    );
+  } catch (err) {
+    return res.status(400).send(err);
+  }
+};
+

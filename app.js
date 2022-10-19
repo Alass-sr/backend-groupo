@@ -2,7 +2,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 
-
+const commentRoutes = require('./routes/comment');
 const messageRoutes = require("./routes/message");
 const userRoutes = require('./routes/user');
 
@@ -41,6 +41,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 
+app.use("/api/comment", commentRoutes);
 app.use("/api/message", messageRoutes);
 app.use("/api/auth", userRoutes);
 
