@@ -1,4 +1,5 @@
 const Message = require("../models/Message");
+
 const User = require("../models/User");
 
 
@@ -54,39 +55,7 @@ exports.modifyMessage = (req, res, next) => {
       else console.log("Update error : " + err);
     }
   );
-  // log.info("modifyMessage");
-  // log.info(`modifyMessage req body = ${JSON.stringify(req.body)}`);
-
-  // const messageObject = req.file
-  //   ? {
-  //       ...JSON.parse(req.body.message),
-  //       imageUrl: `${req.protocol}://${req.get("host")}/images/${
-  //         req.file.filename
-  //       }`,
-  //     }
-  //   : { ...req.body };
-
-  // delete messageObject._userId;
-  // log.info(`modifyMessage req params = ${JSON.stringify(req.params)}`);
-  // log.info(`modifyMessage req body = ${JSON.stringify(req.body)}`);
-  // log.info(`modifyMessage req auth = ${JSON.stringify(req.auth)}`);
-
-  // Message.findOne({ _id: req.params.id })
-  //   .then((message) => {
-  //     if (message.userId != req.auth.userId) {
-  //       res.status(401).json({ message: "Not authorized" });
-  //     } else {
-  //       Message.updateOne(
-  //         { _id: req.params.id },
-  //         { ...messageObject, _id: req.params.id }
-  //       )
-  //         .then(() => res.status(200).json({ message: "Message modifié!" }))
-  //         .catch((error) => res.status(401).json({ error }));
-  //     }
-  //   })
-  //   .catch((error) => {
-  //     res.status(400).json({ error });
-  //   });
+  
 };
 
 exports.getOneMessage = (req, res, next) => {
@@ -106,24 +75,7 @@ exports.deleteMessage = (req, res, next) => {
     if (!err) res.send(docs);
     else console.log("Delete error: " + err);
   });
-  // Message.findOne({ _id: req.params.id })
-  //   .then((message) => {
-  //     if (message.userId != req.auth.userId) {
-  //       res.status(401).json({ message: "Not authorized" });
-  //     } else {
-  //       const filename = message.imageUrl.split("/images/")[1];
-  //       fs.unlink(`images/${filename}`, () => {
-  //         Message.deleteOne({ _id: req.params.id })
-  //           .then(() => {
-  //             res.status(200).json({ message: "Message supprimé !" });
-  //           })
-  //           .catch((error) => res.status(401).json({ error }));
-  //       });
-  //     }
-  //   })
-  //   .catch((error) => {
-  //     res.status(500).json({ error });
-  //   });
+  
 };
 exports.likePost = async (req, res) => {
   try {

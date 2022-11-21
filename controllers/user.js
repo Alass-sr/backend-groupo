@@ -38,8 +38,9 @@ exports.login = (req, res, next) => {
             } else {
               res.status(200).json({
                 userId: user._id,
+                isAdmin: user.isAdmin,
                 token: jwt.sign(
-                  { userId: user._id },
+                  { userId: user._id, isAdmin: user.isAdmin },
 
                   `${process.env.SECRET_TOKEN}`,
 
@@ -56,9 +57,9 @@ exports.login = (req, res, next) => {
     .catch((error) => res.status(500).json({ error }));
 };
 
-// const UserModel = require("../models/user.model");
-// // controle l'authentification du user
-// const ObjectID = require("mongoose").Types.ObjectId;
+exports.logout = (req, res) => {
+  
+};
 
 module.exports.getAllUsers = async (req, res) => {
   const users = await User.find().select("-password"); // -password suppression du password de l'objet

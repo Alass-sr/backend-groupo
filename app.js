@@ -1,10 +1,11 @@
 const express = require("express");
+
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 
-const commentRoutes = require('./routes/comment');
+const commentRoutes = require("./routes/comment");
 const messageRoutes = require("./routes/message");
-const userRoutes = require('./routes/user');
+const userRoutes = require("./routes/user");
 
 const dotenv = require("dotenv").config();
 
@@ -13,9 +14,8 @@ const path = require("path");
 
 mongoose
   .connect(process.env.DB_URI, {
-    useUnifiedTopology: true,
-    keepAlive: true,
     useNewUrlParser: true,
+    useUnifiedTopology: true,
     useCreateIndex: true,
     useFindAndModify: false,
   })
@@ -40,21 +40,15 @@ app.use((req, res, next) => {
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-
 app.use("/api/comment", commentRoutes);
 app.use("/api/message", messageRoutes);
-app.use("/api/auth", userRoutes);
+app.use("/api/user", userRoutes);
 
 // Middleware qui permet de charger les fichiers qui sont dans le repertoire images
 app.use("/images", express.static(path.join(__dirname, "images")));
-
-
-
+app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-// Middleware CORS
 
-// routes
-// app.use("/api/user", userRoutes);
 
 module.exports = app;
