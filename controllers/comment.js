@@ -6,15 +6,12 @@ const jwt = require("jsonwebtoken");
 
 // Create comment
 exports.createCommentPost = (req, res, next) => {
-  if (!ObjectID.isValid(req.params.id))
-    return res.status(400).send("ID unknown : " + req.params.id);
-
   const comment = new Comment({
     postId: req.body.postId,
-    commenterPseudo: req.body.commenterPseudo,
     text: req.body.text,
     userId: req.body.userId,
   });
+
   comment
     .save()
     .then(() => {
@@ -49,34 +46,30 @@ exports.createCommentPost = (req, res, next) => {
 // Get One comment
 
 exports.getOneCommentPost = (req, res, next) => {
-    Message.findOne({
-      _id: req.params.id
-    }).then(
-      (message) => {
-        res.status(200).json(message);
-      }
-    ).catch(
-      (error) => {
-        res.status(404).json({
-          error: error
-        });
-      }
-    );
-  };
+  Comment.find({
+    postId: req.params.id,
+  })
+    .then((message) => {
+      res.status(200).json(message);
+    })
+    .catch((error) => {
+      res.status(404).json({
+        error: error,
+      });
+    });
+};
 
 // Get all comment
 exports.getAllCommentsPost = (req, res, next) => {
-    Comment.find().then(
-        (comments) => {
-          res.status(200).json(comments);
-        }
-      ).catch(
-        (error) => {
-          res.status(400).json({
-            error: error
-          });
-        }
-      );
+  Comment.find()
+    .then((comments) => {
+      res.status(200).json(comments);
+    })
+    .catch((error) => {
+      res.status(400).json({
+        error: error,
+      });
+    });
 };
 
 // Delete comment
@@ -95,5 +88,4 @@ exports.deleteCommentPost = (req, res, next) => {
         error: error,
       });
     });
-  
 };
