@@ -1489,3 +1489,14 @@
 {"level":"info","message":"createMessage req body = {\"message\":\"dsadsada\",\"userId\":\"637e1cc1954d4805d6ba99a9\",\"likers\":\"\"}","timestamp":"2022-11-24 11:37:29 AM +0100"}
 {"level":"info","message":"createMessage","timestamp":"2022-11-24 11:53:05 AM +0100"}
 {"level":"info","message":"createMessage req body = {\"message\":\"un nouveau post\",\"userId\":\"637e1cc1954d4805d6ba99a9\",\"likers\":\"\"}","timestamp":"2022-11-24 11:53:05 AM +0100"}
+{"level":"info","message":"init","timestamp":"2022-11-24 02:11:00 PM +0100"}
+{"level":"info","message":"createMessage","timestamp":"2022-11-24 02:12:57 PM +0100"}
+{"level":"info","message":"createMessage req body = {\"message\":\"coucou\",\"userId\":\"636bf21af5f7d4607026a121\",\"likers\":\"\"}","timestamp":"2022-11-24 02:12:57 PM +0100"}
+{"level":"info","message":"createMessage","timestamp":"2022-11-24 09:02:39 PM +0100"}
+{"level":"info","message":"createMessage req body = {\"message\":\"Recoucou\",\"userId\":\"636bf21af5f7d4607026a121\",\"likers\":\"\"}","timestamp":"2022-11-24 09:02:39 PM +0100"}
+{"level":"info","message":"createMessage","timestamp":"2022-11-24 09:03:44 PM +0100"}
+{"level":"info","message":"createMessage req body = {\"message\":\"\",\"userId\":\"634ea04c5dcd18574c3aa8ef\",\"likers\":\"\"}","timestamp":"2022-11-24 09:03:44 PM +0100"}
+{"level":"info","message":"createMessage","timestamp":"2022-11-24 09:03:55 PM +0100"}
+{"level":"info","message":"createMessage req body = {\"message\":\"Blabla\",\"userId\":\"634ea04c5dcd18574c3aa8ef\",\"likers\":\"\"}","timestamp":"2022-11-24 09:03:55 PM +0100"}
+{"level":"info","message":"createMessage","timestamp":"2022-11-24 09:10:16 PM +0100"}
+{"level":"info","message":"createMessage req body = {\"message\":\"Salut tous le monde !\",\"userId\":\"637fcf7ef5204a441cffd07f\",\"likers\":\"\"}","timestamp":"2022-11-24 09:10:16 PM +0100"}
